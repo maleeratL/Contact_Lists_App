@@ -180,7 +180,25 @@ namespace ContactListApp
             }
         }
 
+        private void Delete_Button(object sender, RoutedEventArgs e)
+        {
 
+            string query = "DELETE FROM contacts WHERE id=\'" + contact_id + "\'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+            Initialize();
+            name_tb.Clear();
+            surname_tb.Clear();
+            phone_tb.Clear();
+            email_tb.Clear();
+
+            MessageBox.Show("Contact details has been deleted!");
+        }
 
     }
 }
