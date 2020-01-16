@@ -180,6 +180,79 @@ namespace ContactListApp
             }
         }
 
+        private void Delete_Button(object sender, RoutedEventArgs e)
+        {
 
+            string query = "DELETE FROM contacts WHERE id=\'" + contact_id + "\'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+            Initialize();
+            name_tb.Clear();
+            surname_tb.Clear();
+            phone_tb.Clear();
+            email_tb.Clear();
+
+            MessageBox.Show("Contact details has been deleted!");
+        }
+
+        private void search_table(object name)
+        {
+            DataTable dt;
+            dt = new DataTable();
+            dt.Columns.Add("First Name");
+            dt.Columns.Add("Last Name");
+            dt.Columns.Add("Mobile Number");
+            dt.Columns.Add("Email Address");
+            dt.Rows.Add(new object[] { name, "Krishna", "9000000000", "haripobbati@gmail.com" });
+            dt.Rows.Add(new object[] { name, "Locke", "15173257153", "kate.locke@gmail.com" });
+            contact_table.ItemsSource = dt.DefaultView;
+
+
+        }
+
+
+        private void Search_Button(object sender, RoutedEventArgs e)
+        {
+            server = "localhost";
+            database = "myContactList";
+            uid = "myuser";
+            password = "mypass";
+            string connectionString;
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+
+            connection = new MySqlConnection(connectionString);
+            string query = "SELECT * FROM contacts WHERE id LIKE  \'%" + search_tb.Text + "%\' OR name LIKE\'%" + search_tb.Text + "%\' OR surname LIKE \'%" + search_tb.Text + "%\' OR phone LIKE \'%" + search_tb.Text + "%\' OR email LIKE \'%" + search_tb.Text + "%\'";
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.CommandText = query;
+
+                cmd.Connection = connection;
+
+                cmd.ExecuteNonQuery();
+
+                DataSet ds = new DataSet();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                da.Fill(ds);
+
+                contact_table.ItemsSource = ds.Tables[0].DefaultView;
+
+                this.CloseConnection();
+            }
+            search_tb.Clear();
+        }
+
+        private void ShowList_Button(object sender, RoutedEventArgs e)
+        {
+            Initialize();
+        }
     }
 }
