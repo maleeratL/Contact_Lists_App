@@ -115,6 +115,71 @@ namespace ContactListApp
             contact_table.ItemsSource = dt.DefaultView;
         }
 
+        private void Save_Button(object sender, RoutedEventArgs e)
+        {
+            var isNumeric = int.TryParse(phone_tb.Text, out int n);
+            if (isNumeric == true)
+            {
+                string query = "INSERT INTO contacts (name, surname,phone,email) VALUES(\'" + name_tb.Text + "\', \'" + surname_tb.Text
+                    + "\'," + phone_tb.Text + ",\'" + email_tb.Text + "\')";
+
+
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    cmd.ExecuteNonQuery();
+
+                    this.CloseConnection();
+                }
+                Initialize();
+                name_tb.Clear();
+                surname_tb.Clear();
+                phone_tb.Clear();
+                email_tb.Clear();
+
+                MessageBox.Show("Contact details are saved sucessfully!");
+            }
+            else
+            {
+                MessageBox.Show("Your phone details have to be number only!");
+            }
+        }
+
+        private void Update_Button(object sender, RoutedEventArgs e)
+        {
+            var isNumeric = int.TryParse(phone_tb.Text, out int n);
+            if (isNumeric == true)
+            {
+                string query = "UPDATE contacts SET name= \'" + name_tb.Text + "\', surname=\'" + surname_tb.Text
+                + "\', phone=" + phone_tb.Text + ", email=\'" + email_tb.Text + "\' WHERE id=\'" + contact_id + "\'";
+
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+
+                    cmd.CommandText = query;
+
+                    cmd.Connection = connection;
+
+                    cmd.ExecuteNonQuery();
+
+                    this.CloseConnection();
+                }
+                Initialize();
+                name_tb.Clear();
+                surname_tb.Clear();
+                phone_tb.Clear();
+                email_tb.Clear();
+
+                MessageBox.Show("Contact details are updated!");
+            }
+            else
+            {
+                MessageBox.Show("Your phone details have to be number only!");
+            }
+        }
+
 
     }
 }
