@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid x:Name="contact_table" CanUserAddRows="False" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="232" Margin="334,152,0,0" VerticalAlignment="Top" Width="433" GotMouseCapture="Selected_item"/>
+
     </Grid>
 </Window>
