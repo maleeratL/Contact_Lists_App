@@ -200,5 +200,19 @@ namespace ContactListApp
             MessageBox.Show("Contact details has been deleted!");
         }
 
+        private void search_table(object name)
+        {
+            DataTable dt;
+            dt = new DataTable();
+            dt.Columns.Add("First Name");
+            dt.Columns.Add("Last Name");
+            dt.Columns.Add("Mobile Number");
+            dt.Columns.Add("Email Address");
+            dt.Rows.Add(new object[] { name, "Krishna", "9000000000", "haripobbati@gmail.com" });
+            dt.Rows.Add(new object[] { name, "Locke", "15173257153", "kate.locke@gmail.com" });
+            contact_table.ItemsSource = dt.DefaultView;
+
+        }
+
     }
 }
