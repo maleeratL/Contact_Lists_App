@@ -254,7 +254,17 @@ namespace ContactListApp
             Initialize();
         }
 
-        private void Selected_item(object sender, MouseEventArgs e)
+       
+
+        private void Clear_Button(object sender, RoutedEventArgs e)
+        {
+            name_tb.Clear();
+            surname_tb.Clear();
+            phone_tb.Clear();
+            email_tb.Clear();
+        }
+
+        private void Selected_data(object sender, MouseEventArgs e)
         {
             var dg = sender as DataGrid;
             DataRowView row = (DataRowView)dg.SelectedItems[0];
@@ -263,14 +273,6 @@ namespace ContactListApp
             phone_tb.Text = row["phone"].ToString();
             email_tb.Text = row["email"].ToString();
             contact_id = row["id"].ToString();
-        }
-
-        private void Clear_Button(object sender, RoutedEventArgs e)
-        {
-            name_tb.Clear();
-            surname_tb.Clear();
-            phone_tb.Clear();
-            email_tb.Clear();
         }
     }
 }
