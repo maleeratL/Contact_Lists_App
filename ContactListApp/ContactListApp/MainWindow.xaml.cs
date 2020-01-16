@@ -266,6 +266,12 @@ namespace ContactListApp
             contact_id = row["id"].ToString();
         }
 
- 
+        private void Clear_Button(object sender, RoutedEventArgs e)
+        {
+            name_tb.Clear();
+            surname_tb.Clear();
+            phone_tb.Clear();
+            email_tb.Clear();
+        }
     }
 }
