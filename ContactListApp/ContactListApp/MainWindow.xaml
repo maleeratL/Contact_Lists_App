@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FF47A2A3">
-        <DataGrid x:Name="contact_table" CanUserAddRows="False" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="232" Margin="334,152,0,0" VerticalAlignment="Top" Width="433" GotMouseCapture="Selected_item"/>
+        <DataGrid x:Name="contact_table" CanUserAddRows="False" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="232" Margin="334,152,0,0" VerticalAlignment="Top" Width="433" GotMouseCapture="Selected_data"/>
         <Label x:Name="title" Content="Contact List Management" HorizontalAlignment="Left" Margin="270,46,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Segoe Print" Background="Transparent" Panel.ZIndex="99" Foreground="White"/>
         <Label x:Name="name" Content="Name :" HorizontalAlignment="Left" Margin="56,113,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Segoe Print" FontSize="16"/>
         <Label x:Name="surname" Content="Surname :" HorizontalAlignment="Left" Margin="55,157,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Segoe Print" FontSize="16"/>
