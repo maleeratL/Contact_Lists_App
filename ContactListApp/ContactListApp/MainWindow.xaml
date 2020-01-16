@@ -8,6 +8,14 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="contact_table" CanUserAddRows="False" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="232" Margin="334,152,0,0" VerticalAlignment="Top" Width="433" GotMouseCapture="Selected_item"/>
-
+        <Label x:Name="title" Content="Contact List Management" HorizontalAlignment="Left" Margin="270,46,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Segoe Print" Background="Transparent" Panel.ZIndex="99" Foreground="White"/>
+        <Label x:Name="name" Content="Name :" HorizontalAlignment="Left" Margin="56,113,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Segoe Print" FontSize="16"/>
+        <Label x:Name="surname" Content="Surname :" HorizontalAlignment="Left" Margin="55,157,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Segoe Print" FontSize="16"/>
+        <Label x:Name="phone" Content="Phone :" HorizontalAlignment="Left" Margin="55,197,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Segoe Print" FontSize="16"/>
+        <Label x:Name="email" Content="Email :" HorizontalAlignment="Left" Margin="56,243,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Segoe Print" FontSize="16"/>
+        <TextBox x:Name="name_tb" HorizontalAlignment="Left" Height="23" Margin="151,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="surname_tb" HorizontalAlignment="Left" Height="23" Margin="151,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="phone_tb" HorizontalAlignment="Left" Height="23" Margin="151,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="email_tb" HorizontalAlignment="Left" Height="23" Margin="151,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
     </Grid>
 </Window>
