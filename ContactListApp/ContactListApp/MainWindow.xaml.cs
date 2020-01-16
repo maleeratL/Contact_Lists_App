@@ -212,6 +212,7 @@ namespace ContactListApp
             dt.Rows.Add(new object[] { name, "Locke", "15173257153", "kate.locke@gmail.com" });
             contact_table.ItemsSource = dt.DefaultView;
 
+
         }
 
 
@@ -253,6 +254,5 @@ namespace ContactListApp
         {
             Initialize();
         }
-
     }
 }
