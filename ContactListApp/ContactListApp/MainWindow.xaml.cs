@@ -254,5 +254,18 @@ namespace ContactListApp
         {
             Initialize();
         }
+
+        private void Selected_item(object sender, MouseEventArgs e)
+        {
+            var dg = sender as DataGrid;
+            DataRowView row = (DataRowView)dg.SelectedItems[0];
+            name_tb.Text = row["name"].ToString();
+            surname_tb.Text = row["surname"].ToString();
+            phone_tb.Text = row["phone"].ToString();
+            email_tb.Text = row["email"].ToString();
+            contact_id = row["id"].ToString();
+        }
+
+ 
     }
 }
