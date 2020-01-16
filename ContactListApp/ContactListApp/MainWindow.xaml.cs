@@ -214,5 +214,40 @@ namespace ContactListApp
 
         }
 
+
+        private void Search_Button(object sender, RoutedEventArgs e)
+        {
+            server = "localhost";
+            database = "myContactList";
+            uid = "myuser";
+            password = "mypass";
+            string connectionString;
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+
+            connection = new MySqlConnection(connectionString);
+            string query = "SELECT * FROM contacts WHERE id LIKE  \'%" + search_tb.Text + "%\' OR name LIKE\'%" + search_tb.Text + "%\' OR surname LIKE \'%" + search_tb.Text + "%\' OR phone LIKE \'%" + search_tb.Text + "%\' OR email LIKE \'%" + search_tb.Text + "%\'";
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.CommandText = query;
+
+                cmd.Connection = connection;
+
+                cmd.ExecuteNonQuery();
+
+                DataSet ds = new DataSet();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                da.Fill(ds);
+
+                datagrid_contact.ItemsSource = ds.Tables[0].DefaultView;
+
+                this.CloseConnection();
+            }
+            search_tb.Clear();
+        }
+
     }
 }
