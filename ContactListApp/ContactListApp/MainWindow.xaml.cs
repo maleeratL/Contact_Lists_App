@@ -242,7 +242,7 @@ namespace ContactListApp
 
                 da.Fill(ds);
 
-                datagrid_contact.ItemsSource = ds.Tables[0].DefaultView;
+                contact_table.ItemsSource = ds.Tables[0].DefaultView;
 
                 this.CloseConnection();
             }
