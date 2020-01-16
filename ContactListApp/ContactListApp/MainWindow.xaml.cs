@@ -249,5 +249,10 @@ namespace ContactListApp
             search_tb.Clear();
         }
 
+        private void ShowList_Button(object sender, RoutedEventArgs e)
+        {
+            Initialize();
+        }
+
     }
 }
