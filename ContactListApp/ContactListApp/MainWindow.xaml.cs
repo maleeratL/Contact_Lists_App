@@ -30,7 +30,6 @@ namespace ContactListApp
         private string uid;
         private string password;
         private string contact_id;
-        private object datagrid_contact;
 
         private void Initialize()
         {
